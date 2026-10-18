@@ -438,6 +438,27 @@
       .thumb-test strong { color: var(--ink); }
       .covers-note { text-align: center; color: var(--ink-soft); max-width: 62ch; margin: 20px auto 0; font-size: 0.97rem; }
 
+      /* ---------- Reviews ---------- */
+      .reviews { display: grid; gap: 16px; }
+      .review-card {
+        background: var(--surface); border: 1px solid var(--line);
+        border-radius: 14px; padding: 24px 24px 20px; margin: 0;
+        display: flex; flex-direction: column;
+      }
+      .review-card .qmark { color: var(--gold); margin-bottom: 12px; line-height: 0; }
+      .review-card .qmark svg { width: 26px; height: 26px; }
+      .review-card blockquote {
+        margin: 0; font-size: 1rem; line-height: 1.65; color: var(--ink);
+      }
+      .review-card figcaption {
+        margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
+      }
+      .review-card .who { font-weight: 600; font-size: 0.98rem; }
+      .review-card .what { color: var(--ink-soft); font-size: 0.9rem; margin-top: 1px; }
+      @media (min-width: 820px) {
+        .reviews { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+      }
+
       /* ---------- FAQ ---------- */
       .faq-list { max-width: 720px; margin: 0 auto; display: grid; gap: 10px; }
       .faq-list details {
@@ -474,6 +495,7 @@
         <a href="#covers">Cover guide</a>
         <a href="#pricing">Pricing</a>
         <a href="#how">Process</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a class="nav-book" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book</a>
       </div>
@@ -762,6 +784,42 @@
               <p>Once the balance is paid, your finished high-resolution files are sent over.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="reviews" aria-labelledby="reviews-h">
+        <div class="sec-head">
+          <h2 id="reviews-h">What authors say</h2>
+          <p class="sec-sub">In their own words — from authors who've commissioned covers and character art.</p>
+          <div class="rule" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+          </div>
+        </div>
+        <div class="reviews">
+          <figure class="review-card">
+            <div class="qmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.6 5C6 7 4 10 4 13.6 4 16.6 5.8 19 8.4 19c2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L9.6 5zm10 0c-3.6 2-5.6 5-5.6 8.6 0 3 1.8 5.4 4.4 5.4 2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L19.6 5z"/></svg></div>
+            <blockquote>Storybound Illustrations did an incredible job illustrating the cover for my short story, The Hill Where the Flowers Grow. She captured exactly what I had envisioned, bringing the characters to life through beautiful, hand drawn artwork. She was efficient, easy to work with, and made the entire experience a pleasure from start to finish. I couldn't be happier with the result and would highly recommend Storybound Illustrations to any author looking for beautiful, thoughtful artwork!</blockquote>
+            <figcaption>
+              <div class="who">Aiden McCandless</div>
+              <div class="what">Book cover · The Hill Where the Blueberries Grow</div>
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="qmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.6 5C6 7 4 10 4 13.6 4 16.6 5.8 19 8.4 19c2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L9.6 5zm10 0c-3.6 2-5.6 5-5.6 8.6 0 3 1.8 5.4 4.4 5.4 2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L19.6 5z"/></svg></div>
+            <blockquote>Ali really brought my story to life with her artwork. She illustrated a pivotal scene in my book and was able to capture the moment and the characters perfectly. The process was smooth, comfortable, and there was zero stress — something I really appreciated since it was my first time commissioning art. I would highly recommend Ali to any authors looking to commission character art.</blockquote>
+            <figcaption>
+              <div class="who">Eleanor Hayes</div>
+              <div class="what">Scene illustration · first-time commissioner</div>
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="qmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.6 5C6 7 4 10 4 13.6 4 16.6 5.8 19 8.4 19c2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L9.6 5zm10 0c-3.6 2-5.6 5-5.6 8.6 0 3 1.8 5.4 4.4 5.4 2.3 0 4-1.7 4-4s-1.7-4-4-4c.3-1.7 1.5-3.2 3.2-4.2L19.6 5z"/></svg></div>
+            <blockquote>Working with Ali was such a treat! She was so kind and made sure the scene she was illustrating for me was exactly how I wanted! She was super involved with me throughout the whole process, and I'm obsessed with the final scene illustration! I would definitely recommend her to other authors!</blockquote>
+            <figcaption>
+              <div class="who">Meg Clark</div>
+              <div class="what">Scene illustration · Project Wintersleep</div>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
