@@ -943,5 +943,17 @@
         });
       })();
     </script>
+    <script>
+      // Invisible page-view counter (counterapi.dev). Fire-and-forget:
+      // a failure here must never affect the page.
+      (function () {
+        try {
+          fetch('https://api.counterapi.dev/v1/storyboundillustrations/visits/up')
+            .then(function () {}, function () {});
+        } catch (e) {
+          /* counter unavailable — ignore */
+        }
+      })();
+    </script>
   </body>
 </html>
