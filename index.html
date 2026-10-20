@@ -944,11 +944,11 @@
       })();
     </script>
     <script>
-      // Invisible page-view counter (counterapi.dev). Fire-and-forget:
+      // Invisible page-view counter (abacus.jasoncameron.dev). Fire-and-forget:
       // a failure here must never affect the page.
       (function () {
         try {
-          fetch('https://api.counterapi.dev/v1/storyboundillustrations/visits/up')
+          fetch('https://abacus.jasoncameron.dev/hit/storyboundillustrations/site-visits')
             .then(function () {}, function () {});
         } catch (e) {
           /* counter unavailable — ignore */
