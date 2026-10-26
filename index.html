@@ -470,6 +470,21 @@
       }
       .faq-list details p { color: var(--ink-soft); margin: 0 0 16px; font-size: 0.97rem; line-height: 1.65; }
 
+      /* ---------- Newsletter ---------- */
+      .newsletter-card {
+        background: var(--surface); border: 1px solid var(--line);
+        border-radius: 14px; padding: 30px 24px; text-align: center;
+        max-width: 720px; margin: 0 auto;
+      }
+      .newsletter-perks {
+        list-style: none; margin: 0 auto 24px; padding: 0;
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+        font-size: 0.98rem; color: var(--ink-soft); max-width: 560px;
+      }
+      .newsletter-perks li { display: inline-flex; align-items: center; gap: 7px; }
+      .newsletter-perks svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
+      .newsletter-note { font-size: 0.92rem; color: var(--ink-soft); margin: 14px 0 0; }
+
       /* ---------- Lightbox ---------- */
       .lightbox {
         position: fixed; inset: 0; z-index: 60; display: none;
@@ -497,6 +512,7 @@
         <a href="#how">Process</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
+        <a href="#newsletter">Newsletter</a>
         <a class="nav-book" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book</a>
       </div>
     </nav>
@@ -876,6 +892,28 @@
         <div class="mid-cta">
           <p>Still deciding? Ask me anything — it's free to ask.</p>
           <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Ask in a DM</a>
+        </div>
+      </section>
+
+      <section id="newsletter" aria-labelledby="newsletter-h">
+        <div class="sec-head">
+          <h2 id="newsletter-h">Join the email list</h2>
+          <p class="sec-sub">Commission slots go fast, and the email list hears about them first. Subscribers also get new pieces and works in progress as they happen.</p>
+          <div class="rule" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+          </div>
+        </div>
+        <div class="newsletter-card">
+          <ul class="newsletter-perks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>First dibs on commission slots</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>New pieces as they're finished</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Works in progress, start to finish</li>
+          </ul>
+          <a class="btn btn-primary" href="https://buttondown.com/Storyboundillustrations" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+            Join the email list
+          </a>
+          <p class="newsletter-note">Free to join, and you can unsubscribe anytime.</p>
         </div>
       </section>
     </main>
