@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#1c1410" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#14100c" media="(prefers-color-scheme: dark)" />
-    <meta name="description" content="Storybound Illustrations — custom character art and book covers for authors in any genre, from $25. Commissions open — DM to book." />
+    <meta name="description" content="Storybound Illustrations — hand-drawn character art and book covers for indie authors, no AI, from $25. Commissions open — DM me on Instagram to start." />
     <link rel="icon" href="data:," />
     <title>Storybound Illustrations — Character Art &amp; Book Covers for Authors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -211,34 +211,39 @@
         .why-grid .why-thread { grid-column: 1 / -1; margin-top: 0; }
       }
 
-      /* ---------- Gallery ---------- */
-      .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+      /* ---------- Gallery — compact stacked grid ---------- */
+      .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
       .piece {
         margin: 0;
         background: var(--surface); border: 1px solid var(--line);
-        border-radius: 12px; overflow: hidden;
+        border-radius: 10px; overflow: hidden;
+        display: flex; flex-direction: column; height: 100%;
       }
       .piece button {
-        all: unset; display: block; width: 100%; cursor: zoom-in;
+        all: unset; display: flex; align-items: center; justify-content: center;
+        width: 100%; cursor: zoom-in; flex: none;
+        aspect-ratio: 1 / 1; background: var(--bg-deep); overflow: hidden;
       }
       .piece button:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
-      .piece img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
-      .piece.cover img { aspect-ratio: auto; object-fit: contain; }
+      .piece img { width: 100%; height: 100%; object-fit: contain; background: var(--bg-deep); }
+      .piece.cover img { object-fit: contain; }
       .piece figcaption {
-        display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
-        padding: 10px 13px 12px;
+        display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 5px;
+        padding: 8px 10px 10px; flex: 1;
       }
-      .piece .title { font-weight: 600; font-size: 0.98rem; line-height: 1.35; }
+      .piece .title { font-weight: 600; font-size: 0.88rem; line-height: 1.3; }
       .genre {
-        flex: none; font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-strong);
-        border: 1px solid var(--line-strong); border-radius: 999px; padding: 2px 9px;
+        flex: none; font-size: 0.65rem; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-strong);
+        border: 1px solid var(--line-strong); border-radius: 999px; padding: 1px 7px;
       }
-      @media (max-width: 560px) {
-        .piece figcaption { flex-direction: column; gap: 5px; }
+      @media (min-width: 640px) {
+        .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+        .piece .title { font-size: 0.9rem; }
+        .piece figcaption { padding: 9px 11px 11px; }
       }
-      @media (min-width: 760px) {
-        .gallery { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      @media (min-width: 980px) {
+        .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
       }
 
       /* ---------- Pricing ---------- */
@@ -337,6 +342,7 @@
       .topnav {
         background: var(--bg);
         border-bottom: 1px solid var(--line);
+        position: sticky; top: 0; z-index: 45;
       }
       .topnav .wrap {
         display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
@@ -437,6 +443,8 @@
       .thumb-test p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
       .thumb-test strong { color: var(--ink); }
       .covers-note { text-align: center; color: var(--ink-soft); max-width: 62ch; margin: 20px auto 0; font-size: 0.97rem; }
+      .covers-summary { text-align: center; color: var(--ink-soft); max-width: 62ch; margin: 22px auto 0; font-size: 1rem; line-height: 1.65; }
+      .covers-summary strong { color: var(--ink); }
 
       /* ---------- Clean typographic covers ---------- */
       .type-covers {
@@ -520,6 +528,43 @@
       .newsletter-perks svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
       .newsletter-note { font-size: 0.92rem; color: var(--ink-soft); margin: 14px 0 0; }
 
+      /* ---------- Proof strip, filters, decide, about, booking ---------- */
+      .proof-strip {
+        list-style: none; margin: 26px auto 0; padding: 14px 18px;
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px;
+        border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
+        font-size: 0.95rem; color: var(--ink-soft); max-width: 860px;
+      }
+      .proof-strip li { display: inline-flex; align-items: center; gap: 7px; }
+      .proof-strip svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
+      .proof-strip strong { color: var(--ink); font-weight: 600; }
+      .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 22px; }
+      .filters button {
+        font-family: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
+        background: transparent; color: var(--ink-soft); border: 1px solid var(--line-strong);
+        border-radius: 999px; padding: 8px 16px;
+      }
+      .filters button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+      .piece[hidden] { display: none; }
+      .decide { display: grid; gap: 16px; margin-bottom: 30px; }
+      .decide-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; }
+      .decide-card h3 { font-family: "Cinzel", Georgia, serif; font-size: 1.15rem; margin: 0 0 6px; }
+      .decide-card .best { color: var(--ink); font-weight: 500; margin: 0 0 10px; }
+      .decide-card p { color: var(--ink-soft); font-size: 0.97rem; margin: 0 0 10px; }
+      .decide-card .from-line { color: var(--gold); font-weight: 600; margin-top: auto; padding-top: 8px; }
+      .decide-card img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 14px; }
+      @media (min-width: 820px) { .decide { grid-template-columns: repeat(3, 1fr); } }
+      .addons { max-width: 860px; margin: 18px auto 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; }
+      .addons h3 { margin: 0 0 8px; font-size: 1.05rem; }
+      .addons p { color: var(--ink-soft); font-size: 0.97rem; margin: 0 0 8px; }
+      .addons p:last-child { margin-bottom: 0; }
+      .about-card { max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px 26px; text-align: center; }
+      .about-card p { color: var(--ink-soft); margin: 0 0 12px; }
+      .about-card p strong { color: var(--ink); }
+      .book-alt { text-align: center; color: var(--ink-soft); font-size: 0.97rem; margin: 18px auto 0; max-width: 56ch; }
+      .newsletter-slim { max-width: 720px; margin: 34px auto 0; border-top: 1px solid var(--line); padding-top: 26px; text-align: center; }
+      .newsletter-slim p { color: var(--ink-soft); margin: 0 auto 14px; max-width: 52ch; font-size: 0.98rem; }
+
       /* ---------- Lightbox ---------- */
       .lightbox {
         position: fixed; inset: 0; z-index: 60; display: none;
@@ -541,14 +586,12 @@
     <nav class="topnav" aria-label="Page sections">
       <div class="wrap">
         <a href="#work">Work</a>
-        <a href="#why">Why custom art</a>
-        <a href="#covers">Cover guide</a>
+        <a href="#commission">What to commission</a>
         <a href="#pricing">Pricing</a>
-        <a href="#how">Process</a>
+        <a href="#how">How it works</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
-        <a href="#newsletter">Newsletter</a>
-        <a class="nav-book" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book</a>
+        <a class="nav-book" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start a commission</a>
       </div>
     </nav>
     <header class="hero">
@@ -557,26 +600,20 @@
         <div class="hero-copy">
         <span class="badge"><span class="dot" aria-hidden="true"></span>Commissions open</span>
         <p class="brand-line">Storybound Illustrations · Art by Ali</p>
-        <h1>Bring your characters to life</h1>
-        <p class="tagline">Custom character art &amp; book covers for authors in any genre — fantasy, horror, romance, and beyond — <strong>drawn for your story and no one else's.</strong></p>
+        <h1>A cover that makes readers reach for your book</h1>
+        <p class="tagline">Custom character art and hand-drawn book covers for indie authors — fantasy, romance, horror, and beyond, plus clean typographic covers for nonfiction. <strong>Drawn for your story and no one else's.</strong></p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="0.6" fill="currentColor"/></svg>
-            DM to book your piece
-          </a>
-          <a class="btn btn-ghost" href="#pricing">See pricing</a>
-          <p class="hero-note">Booking on Instagram — <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations</a></p>
+          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start your commission</a>
+          <a class="btn btn-ghost" href="#work">See the work</a>
+          <p class="hero-note">No form to fill out — just DM me about your book and we'll talk it through there.</p>
         </div>
-        <ul class="trust-row">
+        <ul class="proof-strip">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Hand-drawn, no AI</strong> — every piece drawn by hand in Procreate</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>You approve the sketch first</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>2 revision rounds included</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>50% deposit to book, balance on delivery</li>
         </ul>
         </div>
-        <figure class="hero-art">
-          <img src="assets/art-stable-kiss.jpg" alt="A couple sharing a kiss against a stable wall at sunset while a horse watches over the fence" width="1242" height="1242" />
-          <figcaption>A stolen kiss at golden hour — romance illustration by Ali.</figcaption>
-        </figure>
        </div>
       </div>
     </header>
@@ -585,116 +622,126 @@
       <section id="work" aria-labelledby="work-h">
         <div class="sec-head">
           <h2 id="work-h">Selected work</h2>
-          <p class="sec-sub">Dragons, monsters, stolen kisses, and book covers. Select any piece to see it up close.</p>
+          <p class="sec-sub">Monsters, stolen kisses, and book covers — each captioned with its kind of piece. Filter by what your book needs, and select any piece to see it up close.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
         </div>
+        <div class="filters" role="group" aria-label="Filter work by type">
+          <button type="button" data-filter="all" aria-pressed="true">All work</button>
+          <button type="button" data-filter="scene" aria-pressed="false">Character &amp; scene art</button>
+          <button type="button" data-filter="cover" aria-pressed="false">Illustrated covers</button>
+          <button type="button" data-filter="type" aria-pressed="false">Typographic covers</button>
+        </div>
         <div class="gallery">
-          <figure class="piece">
+          <figure class="piece" data-cat="scene">
             <button type="button" data-full="assets/art-monster-plants.jpg" data-caption="Man-Eating Plants — fantasy horror illustration" aria-label="View Man-Eating Plants full size">
               <img src="assets/art-monster-plants.jpg" alt="A cloaked swordsman facing giant purple man-eating plants with snapping jaws in a dark cave" width="1242" height="1242" loading="lazy" />
             </button>
             <figcaption><span class="title">Man-Eating Plants</span><span class="genre">Fantasy horror</span></figcaption>
           </figure>
-          <figure class="piece">
+          <figure class="piece" data-cat="scene">
             <button type="button" data-full="assets/art-rooftop-pool.jpg" data-caption="Midnight Swim — romance illustration" aria-label="View Midnight Swim full size">
               <img src="assets/art-rooftop-pool.jpg" alt="A couple relaxing in a rooftop pool at night with a starry city skyline behind them" width="1242" height="1242" loading="lazy" />
             </button>
             <figcaption><span class="title">Midnight Swim</span><span class="genre">Romance</span></figcaption>
           </figure>
-          <figure class="piece">
+          <figure class="piece" data-cat="scene">
             <button type="button" data-full="assets/art-snowy-cabin.jpg" data-caption="Snowed In — romance illustration" aria-label="View Snowed In full size">
               <img src="assets/art-snowy-cabin.jpg" alt="A couple in winter coats standing in falling snow, looking toward a lit cabin and a distant ferris wheel" width="1242" height="1242" loading="lazy" />
             </button>
             <figcaption><span class="title">Snowed In</span><span class="genre">Romance</span></figcaption>
           </figure>
-          <figure class="piece">
+          <figure class="piece" data-cat="scene">
             <button type="button" data-full="assets/art-stable-kiss.jpg" data-caption="The Stable Kiss — romance illustration" aria-label="View The Stable Kiss full size">
               <img src="assets/art-stable-kiss.jpg" alt="A couple sharing a kiss against a stable wall at sunset while a horse watches over the fence" width="1242" height="1242" loading="lazy" />
             </button>
             <figcaption><span class="title">The Stable Kiss</span><span class="genre">Romance</span></figcaption>
           </figure>
-          <figure class="piece">
+          <figure class="piece" data-cat="scene">
             <button type="button" data-full="assets/art-beach-sunset.jpg" data-caption="Golden Hour — romance illustration" aria-label="View Golden Hour full size">
               <img src="assets/art-beach-sunset.jpg" alt="A couple embracing on a beach, seen from behind, watching the sun set over the ocean" width="1242" height="1242" loading="lazy" />
             </button>
             <figcaption><span class="title">Golden Hour</span><span class="genre">Romance</span></figcaption>
           </figure>
-          <figure class="piece cover">
-            <button type="button" data-full="assets/art-book-cover.jpg" data-caption="The Hill Where The Blueberries Grow — book cover for Aiden McCandless" aria-label="View The Hill Where The Blueberries Grow book cover full size">
-              <img src="assets/art-book-cover.jpg" alt="Book cover for The Hill Where The Blueberries Grow by Aiden McCandless: a grandmother and young girl carrying buckets of blueberries up a hill path" width="1242" height="1920" loading="lazy" />
+          <figure class="piece cover" data-cat="cover">
+            <button type="button" data-full="assets/art-book-cover.jpg" data-caption="The Hill Where the Blueberries Grow — book cover for Aiden McCandless" aria-label="View The Hill Where the Blueberries Grow book cover full size">
+              <img src="assets/art-book-cover.jpg" alt="Book cover for The Hill Where the Blueberries Grow by Aiden McCandless: a grandmother and young girl carrying buckets of blueberries up a hill path" width="1242" height="1920" loading="lazy" />
             </button>
-            <figcaption><span class="title">The Hill Where The Blueberries Grow</span><span class="genre">Book cover</span></figcaption>
+            <figcaption><span class="title">The Hill Where the Blueberries Grow — by Aiden McCandless</span><span class="genre">Illustrated cover</span></figcaption>
+          </figure>
+          <figure class="piece cover" data-cat="type">
+            <button type="button" data-full="assets/art-bold-cover.jpg" data-caption="BOLD — Stop Waiting, Start Living, by Deanna McCandless · Clean typographic cover by Ali" aria-label="View BOLD book cover full size">
+              <img src="assets/art-bold-cover.jpg" alt="Book cover for BOLD: Stop Waiting, Start Living by Deanna McCandless, with large cream and red BOLD lettering on a black background above a red diagonal panel" width="1242" height="1838" loading="lazy" />
+            </button>
+            <figcaption><span class="title">BOLD — by Deanna McCandless</span><span class="genre">Typographic cover</span></figcaption>
           </figure>
         </div>
+        <p class="covers-note">More pieces are on my Instagram — <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations</a>.</p>
         <div class="mid-cta">
-          <p>Your character could look like this.</p>
-          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book yours</a>
+          <p>Your book could look like this.</p>
+          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start your commission</a>
         </div>
       </section>
 
       <section id="why" aria-labelledby="why-h">
         <div class="sec-head">
-          <h2 id="why-h">Why commission custom art?</h2>
+          <h2 id="why-h">Why custom art sells the story</h2>
           <p class="sec-sub">Stock images and templates are made for everyone — which means they're made for no one. Custom art starts from your story.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
         </div>
-        <div class="why-grid">
-          <article class="why-card">
-            <h3>For authors</h3>
-            <p class="lead">Readers really do judge books by their covers.</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>A custom illustrated cover signals quality before a single page is read.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>It stands out in a crowded store instead of blending in — generic covers get scrolled past.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Your cover is your book's first ad — it turns browsers into buyers.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Character art of your leads doubles as promo art readers actually want to share.</li>
-            </ul>
-          </article>
-          <article class="why-card">
-            <h3>For readers &amp; fans</h3>
-            <p class="lead">See the character in your head, brought to life on the page.</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>A beloved character — or your own original character — brought to life exactly as you imagine them.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Truly one of a kind: no one else will ever have your piece.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>An unforgettable gift for the reader in your life.</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>High-resolution files — print it, frame it, or make it your profile art.</li>
-            </ul>
-          </article>
-<p class="why-thread"><strong>Made for you, not pulled from a template library.</strong> Every piece starts with your story, your characters, and your world — and it's drawn by hand in Procreate, start to finish.</p>
-                  <article class="charart">
-            <h3>What character art does for a book</h3>
-            <p class="lead">A cover gets a reader to pick up the book. Character art keeps them thinking about it.</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>See your cast clearly</strong> — your leads drawn from your descriptions, down to the details only you know.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A face for your series</strong> — consistent character art gives readers a visual identity to recognize across books.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Promo readers actually share</strong> — character art for your posts, newsletter, and author site, made from your story instead of stock.</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A companion to your cover</strong> — the same characters, the same look, so your cover and promo art feel like one world.</span></li>
-            </ul>
-            <p class="note">You don't need both. Many authors start with a single character piece and add a cover later — start with whichever your book needs first.</p>
-          </article>
-        </div>
-        <div class="mid-cta">
-          <a class="btn btn-ghost" href="#pricing">See pricing</a>
-        </div>
+        <article class="charart">
+          <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Reads as your genre at thumbnail size</strong> — Most readers meet your book small, in a storefront grid. A cover built for that size tells the right readers "this is for you" at a glance.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>One focal point, nothing competing</strong> — Clear type, one strong image, and room for the title — so nothing about the design quietly works against the book.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Your characters, not stock faces</strong> — Character art drawn from your descriptions gives your series a face readers recognize across books and posts.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Made to be shared</strong> — The same art works as promo: posts, your author site, and your newsletter, all in one matching look.</span></li>
+          </ul>
+          <p class="note"><strong>Made for you, not pulled from a template library.</strong> Every piece starts with your story, your characters, and your world — drawn by hand in Procreate, start to finish. No AI.</p>
+        </article>
       </section>
 
-      <section id="covers" aria-labelledby="covers-h">
+      <section id="commission" aria-labelledby="covers-h">
         <div class="sec-head">
-          <h2 id="covers-h">What makes a cover work?</h2>
-          <p class="sec-sub">Same illustration, two very different covers. One is a demonstration that uses design choices which quietly work against a book; the other is a finished cover from my portfolio.</p>
+          <h2 id="covers-h">What to commission</h2>
+          <p class="sec-sub">Three ways to work with me — pick by what your book needs first. You don't need all three; many authors start with one and add the rest later.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
+        </div>
+        <div class="decide">
+          <article class="decide-card">
+            <h3>Character art</h3>
+            <p class="best">Best for: meeting your cast — promo art, your author site, and social posts.</p>
+            <p>Your leads drawn from your descriptions, in full color, with a simple background. Bust, half-body, or full-body.</p>
+            <p class="from-line">From $25 · full-body from $60</p>
+          </article>
+          <article class="decide-card">
+            <h3>Illustrated cover</h3>
+            <p class="best">Best for: a book that needs a face in the store.</p>
+            <p>Custom illustrated artwork plus title and author name typesetting, sized for ebook or paperback, with print-ready files. Designed to stay readable at thumbnail size.</p>
+            <p class="from-line">From $150</p>
+          </article>
+          <article class="decide-card">
+            <img src="assets/art-bold-cover.jpg" alt="Book cover for BOLD: Stop Waiting, Start Living by Deanna McCandless — large cream and red BOLD lettering on black" width="1242" height="1838" loading="lazy" />
+            <h3>Typographic cover</h3>
+            <p class="best">Best for: nonfiction, self-help, and memoir.</p>
+            <p>No illustration — the title is the artwork. Big, clear type that says what the book promises in one look, like BOLD for Deanna McCandless. When type alone sells it, this is the cover to pick.</p>
+            <p class="from-line">Quoted per project — ask me in a DM</p>
+          </article>
+        </div>
+        <div class="sec-head">
+          <h2 style="font-size:clamp(1.25rem,5vw,1.6rem)">What makes a cover work?</h2>
+          <p class="sec-sub">Same illustration, two very different covers. One is a demonstration that uses design choices which quietly work against a book; the other is a finished cover from my portfolio.</p>
         </div>
         <div class="compare">
           <figure>
             <span class="demo-label weak">Demonstration — choices that get in the way</span>
             <div class="demo-cover" role="img" aria-label="Demonstration cover: the same illustration with a cluttered, low-contrast script title, a clashing sale badge and a cramped author name">
               <img src="assets/art-book-cover.jpg" alt="" width="1242" height="1920" loading="lazy" />
-              <span class="dw-title" aria-hidden="true">The Hill Where The Blueberries Grow</span>
+              <span class="dw-title" aria-hidden="true">The Hill Where the Blueberries Grow</span>
               <span class="dw-sub" aria-hidden="true">a story about blueberries and family and a hill</span>
               <span class="dw-badge" aria-hidden="true">NEW!!!</span>
               <span class="dw-author" aria-hidden="true">by aiden mccandless</span>
@@ -704,59 +751,19 @@
           <figure>
             <span class="demo-label strong">The finished cover</span>
             <div class="demo-cover">
-              <img src="assets/art-book-cover.jpg" alt="Finished book cover for The Hill Where The Blueberries Grow by Aiden McCandless, with a clear typeset title above the illustration" width="1242" height="1920" loading="lazy" />
+              <img src="assets/art-book-cover.jpg" alt="Finished book cover for The Hill Where the Blueberries Grow by Aiden McCandless, with a clear typeset title above the illustration" width="1242" height="1920" loading="lazy" />
             </div>
-            <figcaption>The Hill Where The Blueberries Grow — illustrated cover from my portfolio, title typeset to be read at a glance.</figcaption>
+            <figcaption>The Hill Where the Blueberries Grow — illustrated cover from my portfolio, title typeset to be read at a glance.</figcaption>
           </figure>
         </div>
-        <div class="crit">
-          <h3>Typography</h3>
-          <p><span class="tag tag-weak">Gets in the way</span>Thin, low-contrast lettering that disappears into the artwork, with several styles fighting for attention.</p>
-          <p><span class="tag tag-strong">Works</span>One clear display type, sized and placed to read instantly, with the title first and the author name second.</p>
-        </div>
-        <div class="crit">
-          <h3>Composition</h3>
-          <p><span class="tag tag-weak">Gets in the way</span>Badges, taglines, and text scattered over the focal point, so the eye doesn't know where to land.</p>
-          <p><span class="tag tag-strong">Works</span>A single focal point, with the title, artwork, and author name each given their own space.</p>
-        </div>
-        <div class="crit">
-          <h3>Color &amp; contrast</h3>
-          <p><span class="tag tag-weak">Gets in the way</span>Clashing additions and text that blends into the background — the mood of the art gets lost.</p>
-          <p><span class="tag tag-strong">Works</span>Text colors chosen against the artwork so everything stays readable and the mood stays intact.</p>
-        </div>
-        <div class="crit">
-          <h3>Image quality &amp; integration</h3>
-          <p><span class="tag tag-weak">Gets in the way</span>Artwork treated as decoration pasted behind text — cropped awkwardly, fighting the lettering for the same space.</p>
-          <p><span class="tag tag-strong">Works</span>The illustration is the cover: composed with room for the title, so art and type read as one finished piece.</p>
-        </div>
-        <div class="crit">
-          <h3>Genre signals</h3>
-          <p><span class="tag tag-weak">Gets in the way</span>Styling that could belong to any book — the right readers can't tell it's for them.</p>
-          <p><span class="tag tag-strong">Works</span>Type and imagery that tell the right readers “this is your kind of story” before they read a word.</p>
-        </div>
+        <p class="covers-summary"><strong>What makes the difference:</strong> clear type that reads at a glance, one focal point instead of clutter, color and contrast that keep everything readable, artwork composed with room for the title, and styling that tells the right readers this is their kind of story.</p>
         <div class="thumb-test">
           <img src="assets/art-book-cover.jpg" alt="" width="260" height="402" loading="lazy" />
           <p><strong>The thumbnail test.</strong> Most readers meet your book at this size, in a storefront grid. A clear title and one strong image remain legible — a cluttered cover turns into noise. That's why a cover should be designed to hold up at this size, not just full-size.</p>
         </div>
         <p class="covers-note">A strong cover is one part of a book's success — the story, blurb, reviews, and promotion all matter too. What good design does is make sure the right readers stop, understand your genre at a glance, and trust that the book inside is made with care.</p>
-        <div class="type-covers" aria-labelledby="type-covers-h">
-          <div class="type-layout">
-            <figure class="type-cover-fig">
-              <button type="button" data-full="assets/art-bold-cover.jpg" data-caption="BOLD — Stop Waiting, Start Living, by Deanna McCandless · Clean typographic cover by Ali" aria-label="View BOLD book cover full size">
-                <img src="assets/art-bold-cover.jpg" alt="Book cover for BOLD: Stop Waiting, Start Living by Deanna McCandless, with large cream and red BOLD lettering on a black background above a red diagonal panel" width="1242" height="1838" />
-              </button>
-              <figcaption>BOLD by Deanna McCandless</figcaption>
-            </figure>
-            <div class="type-copy">
-              <h3 id="type-covers-h">Clean typographic covers</h3>
-              <p><strong>Not every book needs an illustration.</strong> For some books the title is the artwork, big, clear type that says what the book promises in one glance.</p>
-              <p>I do this style too, for <strong>nonfiction, self-help, and memoir</strong>. No illustration, just strong typography and colour, designed to hold up at thumbnail size like my illustrated covers.</p>
-              <a class="btn btn-ghost" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM about a typographic cover</a>
-            </div>
-          </div>
-        </div>
         <div class="mid-cta">
-          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to commission your cover</a>
+          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start your commission</a>
         </div>
       </section>
 
@@ -772,16 +779,16 @@
           <article class="tier">
             <h3>Character Illustration</h3>
             <p class="what">Full-color character art</p>
-            <div class="price"><span class="from">From</span><span class="amount">$60</span></div>
+            <div class="price"><span class="from">From</span><span class="amount">$25</span></div>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>One character in full color</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Bust from $25 · Half-body from $40</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Bust from $25 · Half-body from $40 · Full-body from $60</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Your OC, book character, or D&amp;D hero</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Simple background included</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>High-resolution digital file</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Sketch approval + 2 revision rounds</li>
             </ul>
-            <a class="btn btn-ghost" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book character art</a>
+            <a class="btn btn-ghost" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start with character art</a>
           </article>
           <article class="tier">
             <h3>Book Cover</h3>
@@ -794,7 +801,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Print-ready final files</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Sketch approval + 2 revision rounds</li>
             </ul>
-            <a class="btn btn-ghost" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book your cover</a>
+            <a class="btn btn-ghost" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start with a cover</a>
           </article>
           <article class="tier featured">
             <span class="tier-flag">Best value</span>
@@ -808,16 +815,22 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Ideal for launches and promotions</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Sketch approval + 2 revision rounds on each piece</li>
             </ul>
-            <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book the package</a>
+            <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start with the package</a>
           </article>
         </div>
-        <p class="pricing-note">Every tier works the same way: a 50% deposit to book, and the balance on delivery. Not sure which fits? DM me your idea and I'll point you to the right tier — no pressure to book.</p>
+        <p class="pricing-note">Every tier works the same way: a 50% deposit to book, and the balance on delivery — you approve the finished piece before the balance is due. Not sure which fits? DM me and I'll point you to the right tier — no pressure to book.</p>
+        <div class="addons">
+          <h3>Add-ons &amp; the fine print, up front</h3>
+          <p><strong>Add-ons, quoted with your piece:</strong> an extra character in the same piece, a detailed background, a full paperback wrap, or extra revision rounds beyond the 2 included.</p>
+          <p><strong>Usage rights:</strong> rights are confirmed per project before you book — tell me in your DM whether the art is for a published book, its promotion, or personal use, and your quote will state exactly what's included. Nothing is given away by default, and there are no surprises later.</p>
+          <p><strong>Typographic covers</strong> (nonfiction, self-help, memoir) are quoted per project, since the work is type and layout rather than illustration.</p>
+        </div>
       </section>
 
       <section id="how" aria-labelledby="how-h">
         <div class="sec-head">
           <h2 id="how-h">How it works</h2>
-          <p class="sec-sub">Four simple steps, all handled in Instagram DMs.</p>
+          <p class="sec-sub">Five steps, starting with a quick DM — no form to fill out.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
@@ -826,32 +839,40 @@
           <div class="step">
             <span class="step-num" aria-hidden="true">1</span>
             <div>
-              <h3>DM me your idea</h3>
-              <p>Tell me what you want — a character, a cover, or both — and send any references you have.</p>
+              <h3>DM me on Instagram</h3>
+              <p>Tell me what you want — a character, a cover, or both — plus your book's title, genre, and any references you have. For a cover, add where it will be published (ebook, paperback, or both).</p>
             </div>
           </div>
           <div class="step">
             <span class="step-num" aria-hidden="true">2</span>
+            <div>
+              <h3>Get your quote &amp; timeframe</h3>
+              <p>I reply in the DM with your confirmed quote, exactly which usage rights are included, and a timeframe for your specific piece — before you commit to anything.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">3</span>
             <div>
               <h3>Book your slot</h3>
               <p>A 50% deposit reserves your spot in the queue.</p>
             </div>
           </div>
           <div class="step">
-            <span class="step-num" aria-hidden="true">3</span>
+            <span class="step-num" aria-hidden="true">4</span>
             <div>
               <h3>Sketch &amp; revisions</h3>
-              <p>You approve the sketch first, and 2 revision rounds are included as the piece comes to life.</p>
+              <p>You approve the sketch first, and 2 revision rounds are included as the piece comes to life. Timelines vary by piece — a single bust and a full cover are very different amounts of work — so your timeframe comes with your quote in step 2.</p>
             </div>
           </div>
           <div class="step">
-            <span class="step-num" aria-hidden="true">4</span>
+            <span class="step-num" aria-hidden="true">5</span>
             <div>
               <h3>Final art delivered</h3>
-              <p>Once the balance is paid, your finished high-resolution files are sent over.</p>
+              <p>You approve the finished piece, the balance is paid, and your high-resolution files are sent over — print-ready for covers.</p>
             </div>
           </div>
         </div>
+        <p class="turnaround"><strong>Drawn by hand, no AI.</strong> Every piece is drawn by hand in Procreate, start to finish — that's the whole point of commissioning a person.</p>
       </section>
 
       <section id="reviews" aria-labelledby="reviews-h">
@@ -906,6 +927,20 @@
         </div>
       </section>
 
+      <section id="about" aria-labelledby="about-h">
+        <div class="sec-head">
+          <h2 id="about-h">About the artist</h2>
+          <div class="rule" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+          </div>
+        </div>
+        <div class="about-card">
+          <p><strong>I'm Ali</strong> — the illustrator behind Storybound Illustrations. I draw character art and book covers for indie authors, by hand in Procreate, and I lean illustration-first: the characters are the heart of it, whether they end up on a cover or standing on their own.</p>
+          <p>Fantasy, romance, horror — if your story has people (or monsters) readers fall for, that's my favorite kind of brief. I also design clean typographic covers for nonfiction, self-help, and memoir.</p>
+          <p>See new work as it happens on Instagram: <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations</a>.</p>
+        </div>
+      </section>
+
       <section id="faq" aria-labelledby="faq-h">
         <div class="sec-head">
           <h2 id="faq-h">Questions, answered</h2>
@@ -917,7 +952,7 @@
         <div class="faq-list">
           <details>
             <summary>How much does a custom cover or character piece cost?</summary>
-            <p>Character art starts at $60 for a full-body piece (busts from $25, half-body from $40, shaded full-body pieces up to $100). Book covers start at $150, and the premium package — character art plus a full cover — starts at $350. Your exact quote depends on detail, the number of characters, and the background. You'll always receive your confirmed quote in a DM before you book.</p>
+            <p>Character art starts at $25 for a bust (half-body from $40, full-body from $60, shaded full-body pieces up to $100). Book covers start at $150, and the premium package — character art plus a full cover — starts at $350. Your exact quote depends on detail, the number of characters, and the background. You'll always get your confirmed quote before you book.</p>
           </details>
           <details>
             <summary>What's included in the price?</summary>
@@ -925,7 +960,7 @@
           </details>
           <details>
             <summary>How do I know which service is right for my book?</summary>
-            <p>If your book needs a face in the store, start with a cover. If you want readers to meet your characters — for promos, your site, or social posts — start with character art. The premium package pairs both with a matching look. Not sure? DM me your idea and I'll point you to the right one — no pressure to book.</p>
+            <p>If your book needs a face in the store, start with a cover. If you want readers to meet your characters — for promos, your site, or social posts — start with character art. The premium package pairs both with a matching look. Not sure? DM me and I'll point you to the right one — no pressure to book.</p>
           </details>
           <details>
             <summary>What do you need from me to get started?</summary>
@@ -940,39 +975,40 @@
             <p>Two revision rounds are included with every piece, on top of approving the sketch before final art begins. If you need more changes after that, extra rounds are available for a per-round fee — we'll agree on it before any extra work starts.</p>
           </details>
           <details>
+            <summary>Do you use AI in your art?</summary>
+            <p>No. Every piece is drawn by hand in Procreate, start to finish — sketch, revisions, and final art. Commissioning me means commissioning a person.</p>
+          </details>
+          <details>
             <summary>How long will my piece take?</summary>
-            <p>It varies from project to project — a single bust and a full cover with character art are very different amounts of work. When you DM me your idea, I'll give you a timeframe for your specific piece before you book, so you know what to expect.</p>
+            <p>It varies from project to project — a single bust and a full cover with character art are very different amounts of work. When you DM me, I'll give you a timeframe for your specific piece before you book, so you know what to expect.</p>
           </details>
           <details>
             <summary>What usage rights do I receive?</summary>
-            <p>Tell me how you plan to use the piece when you DM — whether it's for personal use or for a published book and its promotion — and we'll confirm exactly what's included for your project before you book, so there are no surprises later.</p>
+            <p>Tell me how you plan to use the piece when you message me — whether it's for personal use or for a published book and its promotion — and we'll confirm exactly what's included for your project before you book, so there are no surprises later.</p>
           </details>
         </div>
         <div class="mid-cta">
           <p>Still deciding? Ask me anything — it's free to ask.</p>
-          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Ask in a DM</a>
+          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Ask me in a DM</a>
         </div>
       </section>
 
-      <section id="newsletter" aria-labelledby="newsletter-h">
+      <section id="book" aria-labelledby="book-h">
         <div class="sec-head">
-          <h2 id="newsletter-h">Join the email list</h2>
-          <p class="sec-sub">Commission slots go fast, and the email list hears about them first. Subscribers also get new pieces and works in progress as they happen.</p>
+          <h2 id="book-h">Start your commission</h2>
+          <p class="sec-sub">No form to fill out. Just send me a DM on Instagram telling me about your book — what you want, your genre, and any references you have — and I'll reply with your confirmed quote, timeframe, and the usage rights included.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
         </div>
-        <div class="newsletter-card">
-          <ul class="newsletter-perks">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>First dibs on commission slots</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>New pieces as they're finished</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Works in progress, start to finish</li>
-          </ul>
-          <a class="btn btn-primary" href="https://buttondown.com/Storyboundillustrations" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
-            Join the email list
-          </a>
-          <p class="newsletter-note">Free to join, and you can unsubscribe anytime.</p>
+        <div style="text-align:center">
+          <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener" style="font-size:1.08rem;padding:16px 34px">DM me on Instagram to start</a>
+          <p class="book-alt">Prefer email? You can also reach me at <a href="mailto:storyboundillustrations@gmail.com">storyboundillustrations@gmail.com</a>.</p>
+        </div>
+        <div class="newsletter-slim">
+          <h3 style="font-family:'Cinzel',Georgia,serif;font-size:1.15rem;margin:0 0 8px">Join the email list</h3>
+          <p>Commission slots go fast, and the email list hears about them first — plus new pieces and works in progress as they happen. Free to join, unsubscribe anytime.</p>
+          <a class="btn btn-ghost" href="https://buttondown.com/Storyboundillustrations" target="_blank" rel="noopener">Join the email list</a>
         </div>
       </section>
     </main>
@@ -980,23 +1016,21 @@
     <div class="final">
       <div class="wrap">
         <h2>Ready to bring your story to life?</h2>
-        <p>Commissions are open now. Send a DM with your idea — you'll approve the sketch before any final art, and there's no pressure if it's not the right fit.</p>
-        <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="0.6" fill="currentColor"/></svg>
-          DM to book your piece
-        </a>
+        <p>Commissions are open now. DM me to start — you'll approve the sketch before any final art, and there's no pressure if it's not the right fit.</p>
+        <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start your commission</a>
         <p style="margin-top: 16px; font-size: 0.92rem;">Pieces start at $25 · 50% deposit to reserve yours</p>
       </div>
     </div>
 
     <footer>
       <p>Storybound Illustrations — art by Ali<br />
-      <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations on Instagram</a></p>
+      <a href="mailto:storyboundillustrations@gmail.com">storyboundillustrations@gmail.com</a> · <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations on Instagram</a><br />
+      All artwork © Ali / Storybound Illustrations. Usage rights are confirmed per project before booking.</p>
     </footer>
 
     <div class="sticky-bar">
       <div class="who"><b>Storybound Illustrations</b><span>● Commissions open · from $25</span></div>
-      <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">DM to book</a>
+      <a class="btn btn-primary" href="https://ig.me/m/storyboundillustrations" target="_blank" rel="noopener">Start a commission</a>
     </div>
 
     <figure class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer">
@@ -1038,6 +1072,23 @@
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape' && box.classList.contains('open')) close();
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        var filterBtns = document.querySelectorAll('.filters button[data-filter]');
+        var pieces = document.querySelectorAll('.gallery .piece[data-cat]');
+        for (var i = 0; i < filterBtns.length; i++) {
+          filterBtns[i].addEventListener('click', function () {
+            var f = this.getAttribute('data-filter');
+            for (var j = 0; j < filterBtns.length; j++) {
+              filterBtns[j].setAttribute('aria-pressed', filterBtns[j] === this ? 'true' : 'false');
+            }
+            for (var k = 0; k < pieces.length; k++) {
+              pieces[k].hidden = !(f === 'all' || pieces[k].getAttribute('data-cat') === f);
+            }
+          });
+        }
       })();
     </script>
     <script>
