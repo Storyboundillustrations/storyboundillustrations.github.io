@@ -336,10 +336,24 @@
         border-top: 1px solid var(--line);
         display: flex; align-items: center; gap: 12px;
       }
-      .sticky-bar .who { line-height: 1.25; min-width: 0; }
+      .sticky-bar .who { line-height: 1.25; min-width: 0; flex: 1 1 auto; }
       .sticky-bar .who b { display: block; font-size: 0.95rem; white-space: nowrap; }
       .sticky-bar .who span { font-size: 0.84rem; color: var(--badge-ink); font-weight: 600; white-space: nowrap; }
-      .sticky-bar .btn { margin-left: auto; padding: 12px 22px; font-size: 1rem; white-space: nowrap; }
+      .sticky-bar .btn { margin-left: auto; padding: 12px 22px; font-size: 1rem; white-space: nowrap; flex: none; }
+      /* Phone widths: shrink the bar's type and padding so the name and
+         "Commissions open" line sit fully beside the button instead of
+         being cut off behind it. */
+      @media (max-width: 480px) {
+        .sticky-bar { gap: 10px; padding-left: 12px; padding-right: 12px; }
+        .sticky-bar .who b { font-size: 0.88rem; }
+        .sticky-bar .who span { font-size: 0.78rem; }
+        .sticky-bar .btn { padding: 11px 14px; font-size: 0.92rem; }
+      }
+      @media (max-width: 380px) {
+        .sticky-bar .who b { font-size: 0.84rem; }
+        .sticky-bar .who span { font-size: 0.74rem; }
+        .sticky-bar .btn { padding: 10px 12px; font-size: 0.88rem; }
+      }
       @media (min-width: 760px) { .sticky-bar { display: none; } }
 
       /* ---------- Top navigation ---------- */
@@ -842,7 +856,7 @@
       <section id="how" aria-labelledby="how-h">
         <div class="sec-head">
           <h2 id="how-h">How it works</h2>
-          <p class="sec-sub">Five steps, starting with a quick DM — no form to fill out.</p>
+          <p class="sec-sub">Three steps — starting with a quick DM, no form to fill out.</p>
           <div class="rule" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
@@ -851,40 +865,25 @@
           <div class="step">
             <span class="step-num" aria-hidden="true">1</span>
             <div>
-              <h3>DM me on Instagram</h3>
-              <p>Tell me what you want — a character, a cover, or both — plus your book's title, genre, and any references you have. For a cover, add where it will be published (ebook, paperback, or both).</p>
+              <h3>DM your idea</h3>
+              <p>Message me on Instagram with your idea. 50% deposit to book your slot.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-num" aria-hidden="true">2</span>
             <div>
-              <h3>Get your quote &amp; timeframe</h3>
-              <p>I reply in the DM with your confirmed quote, exactly which usage rights are included, and a timeframe for your specific piece — before you commit to anything.</p>
+              <h3>Approve the sketch</h3>
+              <p>You approve the sketch first. 2 revision rounds included.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-num" aria-hidden="true">3</span>
             <div>
-              <h3>Book your slot</h3>
-              <p>A 50% deposit reserves your spot in the queue.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-num" aria-hidden="true">4</span>
-            <div>
-              <h3>Sketch &amp; revisions</h3>
-              <p>You approve the sketch first, and 2 revision rounds are included as the piece comes to life. Timelines vary by piece — a single bust and a full cover are very different amounts of work — so your timeframe comes with your quote in step 2.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-num" aria-hidden="true">5</span>
-            <div>
-              <h3>Final art delivered</h3>
-              <p>You approve the finished piece, the balance is paid, and your high-resolution files are sent over — print-ready for covers.</p>
+              <h3>Receive the final files</h3>
+              <p>Balance on delivery, then your high-resolution files are sent — print-ready for covers.</p>
             </div>
           </div>
         </div>
-        <p class="turnaround"><strong>Drawn by hand, no AI.</strong> Every piece is drawn by hand in Procreate, start to finish — that's the whole point of commissioning a person.</p>
       </section>
 
       <section id="reviews" aria-labelledby="reviews-h">
@@ -947,9 +946,9 @@
           </div>
         </div>
         <div class="about-card">
-          <p><strong>I'm Ali</strong> — the illustrator behind Storybound Illustrations. I draw character art and book covers for indie authors, by hand in Procreate, and I lean illustration-first: the characters are the heart of it, whether they end up on a cover or standing on their own.</p>
-          <p>Fantasy, romance, horror — if your story has people (or monsters) readers fall for, that's my favorite kind of brief. I also design clean typographic covers for nonfiction, self-help, and memoir.</p>
-          <p>See new work as it happens on Instagram: <a href="https://instagram.com/storyboundillustrations" target="_blank" rel="noopener">@storyboundillustrations</a>.</p>
+          <p>I'm Ali, the illustrator behind Storybound Illustrations. I draw character art, scenes and book covers for indie authors, by hand in Procreate. I haven't always been into art. I used to kind of hate it, actually. But I've always been a judge-a-book-by-its-cover type of girl. Somewhere along the way that turned into wanting to be the one making them, which is one of the reasons I love to draw now. I'm a big reader too, which is probably why covers hooked me in the first place. I love making your scenes and characters come to life, and creating covers that fit your book.</p>
+          <p>Romance, Fantasy, Horror, Dystopian, and more... if your story has people (or monsters) that you want readers to fall for, that's what I'm here for! I also design clean typographic covers for nonfiction, self-help, and memoir.</p>
+          <p>See all my finished work and WIPs on Instagram: <a href="https://www.instagram.com/storyboundillustrations/" target="_blank" rel="noopener">@storyboundillustrations</a></p>
         </div>
       </section>
 
@@ -964,7 +963,7 @@
         <div class="faq-list">
           <details>
             <summary>How much does a custom cover or character piece cost?</summary>
-            <p>Character art starts at $25 for a bust (half-body from $40, full-body from $60, shaded full-body pieces up to $100). An illustrated ebook cover runs $150–$250, and a full paperback wrap, including the ebook files, runs $250–$400. The premium package — character art plus a full cover — starts at $350. Your exact quote depends on the number of characters and background detail. You'll always get your confirmed quote before you book.</p>
+            <p>Character art starts at $25 for a bust (half-body from $40, full-body from $60, shaded full-body pieces up to $100). An illustrated ebook cover runs $150–$250, and a full paperback wrap, including the ebook files, runs $250–$400. The Premium Package — character art plus an illustrated front cover — starts at $350, with the full paperback wrap available as a +$100–$150 add-on. Your exact quote depends on the number of characters and background detail. You'll always get your confirmed quote before you book.</p>
           </details>
           <details>
             <summary>What's included in the price?</summary>
@@ -972,7 +971,7 @@
           </details>
           <details>
             <summary>How do I know which service is right for my book?</summary>
-            <p>If your book needs a face in the store, start with a cover. If you want readers to meet your characters — for promos, your site, or social posts — start with character art. The premium package pairs both with a matching look. Not sure? DM me and I'll point you to the right one — no pressure to book.</p>
+            <p>If your book needs a face in the store, start with a cover. If you want readers to meet your characters — for promos, your site, or social posts — start with character art. The Premium Package pairs an illustrated front cover with standalone character art in a matching look. Not sure? DM me and I'll point you to the right one — no pressure to book.</p>
           </details>
           <details>
             <summary>What do you need from me to get started?</summary>
@@ -992,7 +991,7 @@
           </details>
           <details>
             <summary>How long will my piece take?</summary>
-            <p>It varies from project to project — a single bust and a full cover with character art are very different amounts of work. When you DM me, I'll give you a timeframe for your specific piece before you book, so you know what to expect.</p>
+            <p>It varies from project to project — a single bust and an illustrated front cover with character art are very different amounts of work. When you DM me, I'll give you a timeframe for your specific piece before you book, so you know what to expect.</p>
           </details>
           <details>
             <summary>What usage rights do I receive?</summary>
